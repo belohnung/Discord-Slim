@@ -45,7 +45,7 @@ export class Client extends EventEmitter {
             this.#lastSequence = 0;
         }
 
-        const gateway = SafeJsonParse((await HttpsRequest(`${API}/gateway/bot`, { headers: { Authorization: this.#auth } })).data);
+        const gateway = SafeJsonParse((await HttpsRequest(`${API}/gateway`, { headers: { Authorization: this.#auth } })).data);
         if(!(gateway && (typeof gateway.url == 'string')))
             return this.emit('fatal', 'Unable to connect: unexpected gateway API response.');
 
@@ -116,7 +116,7 @@ export class Client extends EventEmitter {
                 op: OPCode.IDENTIFY,
                 d: {
                     token: this.#token,
-                    properties: { $os: 'linux', $browser: 'bot', $device: 'bot' },
+                    properties: { $os: 'linux', $browser: 'buttplug-client', $device: 'buttplug' },
                     version: 6,
                     intents: this.#intents,
                 },
@@ -160,7 +160,7 @@ export class Client extends EventEmitter {
             throw 'Token must be a string.';
 
         this.#token = token;
-        this.#auth = `Bot ${token}`;
+        this.#auth = `${token}`;
     }
 
     Connect(intents?: Intents) {
