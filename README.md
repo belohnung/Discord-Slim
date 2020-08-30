@@ -4,7 +4,7 @@
 Lightweight **Discord** client for **Node.js**.  
 
 Provides access to Discord client gateway and API for Clients.
-You will probably get banned for this, i dont take responsability
+You will probably get banned for this, i dont take responsability.
 Very minimalistic way without excessive abstractions and dependencies. Also with very low resources usage.  
 
 ## Before you start
